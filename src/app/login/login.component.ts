@@ -9,10 +9,10 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'SPB00001'
-  password = ''
-  errorMessage = 'Invalid Credentials'
-  invalidLogin = false
+  username: string;
+  password: string;
+  errorMessage="Invalid Login credentials!!";
+  invalidLogin = false;
 
   constructor(private router : Router,
     private authenticationService : AuthenticationService) { }

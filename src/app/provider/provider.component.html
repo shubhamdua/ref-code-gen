@@ -1,0 +1,47 @@
+<div *ngIf="provider.id"><H3>Update Provider</H3></div>
+<div *ngIf="!provider.id"><H3>Add Provider</H3></div>
+
+  <div class="container">
+    <div class="alert alert-warning" *ngIf="name.dirty && name.invalid">Enter min 5 characters</div>
+    <div class="alert alert-warning" *ngIf="contactNo.dirty && contactNo.invalid">Enter valid Contact No</div>
+    <div class="alert alert-warning" *ngIf="emailId.dirty && emailId.invalid">Enter valid email id</div>
+
+    <div *ngIf="provider.id">
+      Provider Id: {{provider.id}}
+    </div>
+
+    <form (ngSubmit)="!providerForm.invalid && saveTodo()" #providerForm="ngForm">
+      <fieldset class="form-group">
+        <label>Name</label>
+        <input type="text" #name="ngModel" [(ngModel)]="provider.name" class="form-control" name="name"
+          required="required" minlength="5">
+      </fieldset>
+
+      <fieldset class="form-group" *ngIf="!provider.id">
+        <label>City</label>
+        <input type="text" #city="ngModel" [(ngModel)]="provider.city" class="form-control" id ="city" name="city"
+          required="required">
+      </fieldset>
+
+      <fieldset class="form-group" *ngIf="!provider.id">
+        <label>State</label>
+        <input type="text" #state="ngModel" [(ngModel)]="provider.state" class="form-control" id="state" name="state"
+          required="required">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Contact No</label>
+        <input type="text" #contactNo="ngModel" [(ngModel)]="provider.contactNo" class="form-control" id="contactNo" name="contactNo"
+          pattern="[1-9][0-9]{9}" required="required" minlength="10" maxlength="10">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Email Id</label>
+        <input type="email" #emailId="ngModel" [(ngModel)]="provider.emailId" class="form-control" id="emailId" name="emailId"
+          required="required" pattern="[A-Za-z][A-Za-z0-9]+[@][a-z]+[\.](com)">
+      </fieldset>
+
+      <button type="submit" class="btn btn-success">Save</button>
+
+    </form>
+  </div>

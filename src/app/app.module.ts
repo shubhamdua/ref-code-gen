@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -9,7 +9,10 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { AfterLoginComponent } from './after-login/after-login.component';
 import { ErrorComponent } from './error/error.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProviderComponent } from './provider/provider.component';
+import { DataService } from './service/data.service';
+import { AuthenticationService } from './service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -19,14 +22,17 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     FooterComponent,
     AfterLoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    ProviderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DataService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

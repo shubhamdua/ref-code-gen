@@ -1,1 +1,37 @@
-<p>after-login works!</p>
+<h4 class="display-4"> Providers... </h4>
+
+<div class="container">
+    <table class="table table-bordered table-hover table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Contact No</th>
+                <th>Email Id</th>
+                <th>Referral Code</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let provider of providers">
+                <td>{{provider.id}}</td>
+                <td>{{provider.name}}</td>
+                <td>{{provider.city}}</td>
+                <td>{{provider.state}}</td>
+                <td>{{provider.contactNo}}</td>
+                <td>{{provider.emailId}}</td>
+                <td>{{provider.referralCode}}</td>
+                <td><button (click)="updateProvider(provider.id)" class="btn btn-success">Update</button></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div class="row">
+        <button (click)="addProvider()" class="btn btn-success">Add</button>
+    </div>
+
+</div>

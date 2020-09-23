@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  errorMessage = 'The page you are looking for is unavailable'
-
   constructor() { }
 
   ngOnInit(): void {

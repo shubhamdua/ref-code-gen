@@ -1,14 +1,15 @@
 export class User{
 
-    id: string;
-    name: string;
-    role: string;
-    city: string;
-    state: string;
-    contactNo: string;
-    emailId: string;
-    linkedTo: string;
-    createdOn: Date;
-    referralCode: string;
+    constructor(
+    public id: string,
+    public name: string,
+    public role: string,
+    public city: string,
+    public state: string,
+    public contactNo: string,
+    public emailId: string,
+    public linkedTo: string,
+    public createdOn: Date,
+    public referralCode: string){}
     
 }

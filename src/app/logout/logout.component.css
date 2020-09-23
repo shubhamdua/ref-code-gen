@@ -1,0 +1,27 @@
+.logoutContainer{
+    width: 600px;
+  background-color: white;
+  margin: auto;
+  position: relative;
+margin-top: 50px;
+}
+.titleDiv {
+    padding: 10px;
+    padding-left: 0px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.mar{
+    margin-top:20px;
+}
+@media (max-width: 768px){
+    .loginContainer {
+      margin-top: 0% !important;
+      position: relative;
+      width: 90%;
+          top: 100px;
+      transform: inherit;
+      padding: 0px;
+      left: auto;
+  }
+}
