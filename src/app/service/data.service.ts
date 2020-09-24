@@ -15,11 +15,11 @@ export class DataService {
   }
 
   retrieveAllProviders(username: string){
-    return this.http.get<User[]>( `${API_URL}/agent/${username}/providers/all`);
+    return this.http.get<User[]>( `${API_URL}/${username}/providers/all`);
   }
 
   retrieveProvider(username: string){
-    return this.http.get<User>( `${API_URL}/fetch/provider/${username}`);
+    return this.http.get<User>( `${API_URL}/provider/${username}`);
   }
 
   updateProvider(provider: User){
