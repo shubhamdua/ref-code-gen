@@ -12,7 +12,7 @@ export class ProviderComponent implements OnInit {
 
   id: string;
   provider: User;
-
+  
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -23,7 +23,7 @@ export class ProviderComponent implements OnInit {
     
     this.id = this.route.snapshot.params['id'];
     
-    this.provider = new User(null,'','','','','','','',new Date(),'');
+    this.provider = new User('','','','','','','','',new Date(),'');
     
     if(this.id!='') {
       this.provider.id=this.id;
@@ -35,25 +35,23 @@ export class ProviderComponent implements OnInit {
   }
 
   saveTodo() {
-  //   if(this.id == '') { //=== ==
-  //     this.dataService.addProvider(sessionStorage.getItem('authenticatedUser'), this.provider)
-  //         .subscribe (
-  //           data => {
-  //             console.log(data)
-  //             this.router.navigate(['provider'])
-  //           }
-  //         )
-  //   } else {
-  //     this.dataService.updateProvider(this.provider)
-  //         .subscribe (
-  //           data => {
-  //             console.log(data)
-  //             this.router.navigate(['todos'])
-  //           }
-  //         )
-  //   }
-    console.log(this.provider);
-    this.router.navigate(['after-login',sessionStorage.getItem('authenticatedUser')]);
+    if(this.id == '') { 
+      this.dataService.addProvider(sessionStorage.getItem('authenticatedUser'), this.provider)
+          .subscribe (
+            data => {
+              console.log(data)
+              this.router.navigate(['after-login',sessionStorage.getItem('authenticatedUser')]);
+            }
+          )
+    } else {
+      this.dataService.updateProvider(this.provider)
+          .subscribe (
+            data => {
+              console.log(data)
+              this.router.navigate(['after-login',sessionStorage.getItem('authenticatedUser')])
+            }
+          )
+    }
   }
 
 }
